@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: api
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&allowMultiQueries=true
+      username: root
+      password: root
+      type: com.zaxxer.hikari.HikariDataSource
+      hikari:
+        maxLifetime: 600000 # 10分钟
+        maximumPoolSize: 10 #连接池中允许的最大连接数
+server:
+  port: 8080
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+curator:
+  retryCount: 5
+  elapsedTimeMs: 5000
+  connectString: 127.0.0.1:2181
+  sessionTimeoutMs: 60000
+  connectionTimeoutMs: 5000
+

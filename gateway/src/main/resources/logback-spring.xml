@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <springProperty scope="context" name="appName"
+                    source="spring.application.name"/>
+    <!-- <include resource="org/springframework/boot/logging/logback/base.xml" /> -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_FILE"
+              value="${LOG_FILE:-${BBD_LOG_PATH:-${BBD_LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/${appName}.log}"/>
+    <property name="FILE_LOG_PATTERN"
+              value="%date{yyyy-MM-dd HH:mm:ss}||%thread||%level||%logger:%line||%msg %ex||%n"/>
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%date{yyyy-MM-dd HH:mm:ss} %thread %level %logger:%line %msg %ex %n"/>
+    <include
+            resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
+
+    <springProfile name="dev">
+
+        <logger name="org.springframework.web" level="WARN"/>
+        <logger name="esalert" level="INFO"/>
+        <logger name="com.netflix.discovery" level="OFF"/>
+        <logger name="com.sun.jersey.api.client" level="OFF"/>
+        <logger name="org.elasticsearch.client.RestClient" level="ERROR"/>
+
+        <logger name="com.components.exception" level="FATAL" activty="false"/>
+        <logger name="org.springframework.data" level="TRACE" activty="false"/>
+        <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" activty="false"/>
+        <logger name="com.bbd" level="TRACE" activty="false"/>
+        <logger name="org.springframework.boot.actuate.elasticsearch" level="ERROR" />
+
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+
+    </springProfile>
+
+    <springProfile name="test">
+
+        <logger name="org.springframework.web" level="WARN"/>
+        <logger name="esalert" level="INFO"/>
+        <logger name="com.netflix.discovery" level="OFF"/>
+        <logger name="com.sun.jersey.api.client" level="OFF"/>
+        <logger name="org.elasticsearch.client.RestClient" level="ERROR"/>
+
+        <logger name="com.components.exception" level="FATAL" activty="false"/>
+        <logger name="org.springframework.data" level="TRACE" activty="false"/>
+        <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" activty="false"/>
+        <logger name="com.bbd" level="TRACE" activty="false"/>
+        <logger name="org.springframework.boot.actuate.elasticsearch" level="ERROR" />
+
+        <root level="INFO">
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="INFO">
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+
+    <springProfile name="pre">
+        <root level="INFO">
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+
+    <logger
+            name="org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler"
+            level="OFF"/>
+
+
+    <jmxConfigurator/>
+
+</configuration>
