@@ -1,5 +1,6 @@
 package com.wish.web.controller;
 
+import com.wish.common.model.ResponseBean;
 import com.wish.web.remote.TestRemote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,11 @@ public class TestController {
     @RequestMapping("/hello2")
     public String index2(@RequestParam String name) {
         return testRemote.hello2(name);
+    }
+
+    @RequestMapping("/hello3")
+    public ResponseBean index3(@RequestParam String name) {
+        return ResponseBean.successResponse(name);
     }
 
 }

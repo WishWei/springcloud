@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.CountDownLatch;
 
 /**
+ * 分布式锁
  * Created by wish on 2019/3/3.
  */
 @Service

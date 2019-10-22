@@ -24,7 +24,6 @@ import java.util.Properties;
 public class MybatisConfig {
 
     @Autowired
-    @Qualifier("dataSource")
     private DataSource dataSource;
 
     @Bean
