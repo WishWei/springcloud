@@ -17,4 +17,9 @@ public class TestRemoteHystric implements TestRemote {
     public String hello2(String name) {
         return "hello2" +name+", this messge send failed ";
     }
+
+    @Override
+    public String addUser(String name) {
+        return "addUser" +name+", this messge send failed ";
+    }
 }
