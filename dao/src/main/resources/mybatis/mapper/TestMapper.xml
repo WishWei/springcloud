@@ -3,5 +3,12 @@
 
 <mapper namespace="com.wish.mapper.TestMapper">
 
+    <insert id="insert">
+        insert into t_test(name) values(#{name})
+    </insert>
+
+    <insert id="update">
+        update t_test set name = #{name} where id = #{id}
+    </insert>
 
 </mapper>

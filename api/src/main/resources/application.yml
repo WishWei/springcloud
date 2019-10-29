@@ -26,3 +26,7 @@ curator:
   sessionTimeoutMs: 60000
   connectionTimeoutMs: 5000
 
+tx-lcn:
+  client:
+    manager-address:127.0.0.1:8070
+

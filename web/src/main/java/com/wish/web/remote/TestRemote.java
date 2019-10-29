@@ -15,4 +15,7 @@ public interface TestRemote {
 
     @RequestMapping(value = "/hello2")
     String hello2(@RequestParam(value = "name") String name);
+
+    @RequestMapping(value = "/addUser")
+    String addUser(@RequestParam(value = "name") String name);
 }

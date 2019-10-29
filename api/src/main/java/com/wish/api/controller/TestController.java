@@ -1,8 +1,10 @@
 package com.wish.api.controller;
 
 import com.wish.component.DistributedLockByCurator;
+import com.wish.service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +18,9 @@ public class TestController {
 
     @Autowired
     private DistributedLockByCurator distributedLockByCurator;
+
+    @Autowired
+    private TestService testService;
 
     @RequestMapping("/hello")
     public String hello(@RequestParam String name) {
@@ -35,5 +40,10 @@ public class TestController {
         distributedLockByCurator.releaseDistributedLock(lockName);
         log.info("thread:{} released lock:{}", Thread.currentThread().getName(), lockName);
         return "lockName "+lockName;
+    }
+
+    @GetMapping("/addUser")
+    public void addUser(String name){
+        testService.addUser(name);
     }
 }
