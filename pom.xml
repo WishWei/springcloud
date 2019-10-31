@@ -40,6 +40,8 @@
 		<module.version>1.0</module.version>
 		<swagger2.version>2.6.1</swagger2.version>
 		<txlcn.version>5.0.2.RELEASE</txlcn.version>
+		<dao.version>1.0</dao.version>
+		<domain.version>1.0</domain.version>
 	</properties>
 
 	<dependencyManagement>
@@ -132,6 +134,18 @@
 				<groupId>com.codingapi.txlcn</groupId>
 				<artifactId>txlcn-txmsg-netty</artifactId>
 				<version>${txlcn.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.wish</groupId>
+				<artifactId>dao</artifactId>
+				<version>${dao.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.wish</groupId>
+				<artifactId>domain</artifactId>
+				<version>${domain.version}</version>
 			</dependency>
 
 		</dependencies>

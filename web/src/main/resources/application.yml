@@ -34,5 +34,5 @@ security:
   oauth2:
     resource:
       id: resource
-      user-info-uri: http://10.10.8.2:9030/uaa/user
+      user-info-uri: http://127.0.0.1:8001/auth-server/user
       prefer-token-info: false

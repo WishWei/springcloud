@@ -21,3 +21,13 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8000/eureka/
+
+security:
+  oauth2:
+    client:
+      access-token-uri: http://127.0.0.1:8001/auth-server/oauth/token #网关的地址
+      user-authorization-uri: http://127.0.0.1:8001/auth-server/oauth/authorize
+      client-id: wf
+    resource:
+      user-info-uri: http://127.0.0.1:8001/auth-server/user
+      prefer-token-info: false

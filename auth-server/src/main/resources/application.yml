@@ -1,8 +1,20 @@
 spring:
   application:
     name: auth-server
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.28.109.98:3306/tx_lcn?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maxLifetime: 600000 # 10分钟
+      maximumPoolSize: 10 #连接池中允许的最大连接数
 server:
   port: 8088
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
 eureka:
   client:
     serviceUrl:
